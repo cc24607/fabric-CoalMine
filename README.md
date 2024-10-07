@@ -1,5 +1,5 @@
 # fabric-CoalMine
-Coal Mine Scheduling Speech Storage Based on Consortium Blockchain and Speech Macromodelling
+本文是基于hyperledger-fabric框架的Coal Mine Scheduling Speech Storage Based on Consortium Blockchain and Speech Macromodelling
 ## 一、启动区块链网络
 1.首先进入用于启动网络的脚本所在的目录：  
 ```
