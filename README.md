@@ -65,7 +65,9 @@ export CC_PACKAGE_ID=basic_1.0.1:b5464a7ae883fec1b4a16ade22166233967c6f0feae1545
 ```
 使用以下命令审批组织3的基本链码定义，并检查该链码定义是否已经提交给通道mychanel：
 ```
-peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.mine.com --tls --cafile "${PWD}/organizations/ordererOrganizations/mine.com/orderers/orderer.mine.com/msp/tlscacerts/tlsca.mine.com-cert.pem" --channelID mychannel --name basic --version 1.0.1 --package-id $CC_PACKAGE_ID --sequence 1
+peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.mine.com --tls \
+--cafile "${PWD}/organizations/ordererOrganizations/mine.com/orderers/orderer.mine.com/msp/tlscacerts/tlsca.mine.com-cert.pem" \
+--channelID mychannel --name basic --version 1.0.1 --package-id $CC_PACKAGE_ID --sequence 1
 
 peer lifecycle chaincode querycommitted --channelID mychannel --name basic
 ```
