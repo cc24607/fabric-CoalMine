@@ -1,0 +1,33 @@
+test:
+  workers:
+    number: 5
+  rounds:
+    - label: CreateAsset
+      txNumber: 1000
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 40
+      workload:
+        module: benchmarks/samples/fabric/basic/createMine.js
+
+    - label: query
+      txNumber: 1000
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 40
+      workload:
+        module: benchmarks/samples/fabric/basic/queryMine.js
+        arguments:
+          assets: 1
+monitors:
+  resource:
+  - module: docker
+    options:
+      interval: 5
+      cpuUsageNormalization: true
+      containers:
+      - /peer0.org1.mine.com
+      - /peer0.org2.mine.com
+      - /peer0.org3.mine.com

@@ -1,0 +1,52 @@
+name: Caliper Benchmarks
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric
+
+channels:
+  # channelName of mychannel matches the name of the channel created by test network
+  - channelName: mychannel
+    # the chaincodeIDs of all the fabric chaincodes in caliper-benchmarks
+    contracts:
+    - id: basic
+
+organizations:
+  - mspid: Org1MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org1.mine.com/users/User1@org1.mine.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org1.mine.com/users/User1@org1.mine.com/msp/signcerts/User1@org1.mine.com-cert.pem'
+    connectionProfile:
+      path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org1.mine.com/connection-org1.yaml'
+      discover: true
+
+  - mspid: Org2MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org2.mine.com/users/User1@org2.mine.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org2.mine.com/users/User1@org2.mine.com/msp/signcerts/User1@org2.mine.com-cert.pem'
+    connectionProfile:
+      path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org2.mine.com/connection-org2.yaml'
+      discover: true
+
+  - mspid: Org3MSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org3.mine.com/users/User1@org3.mine.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org3.mine.com/users/User1@org3.mine.com/msp/signcerts/User1@org3.mine.com-cert.pem'
+    connectionProfile:
+      path: '../../../fabric-samples/test-network/organizations/peerOrganizations/org3.mine.com/connection-org3.yaml'
+      discover: true
